@@ -1,4 +1,4 @@
-<h1 align="center">김한성</h1>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a56db,100:0ea5e9&height=170&section=header&text=%EA%B9%80%ED%95%9C%EC%84%B1&fontColor=ffffff&fontSize=44&fontAlignY=36&desc=%ED%8F%90%EC%87%84%EB%A7%9D%20RAG%20%C2%B7%20%EC%98%A8%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4%20AI%20%C2%B7%20%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%20%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98&descSize=17&descAlignY=58" width="100%"/>
 
 <p align="center">
   <b>폐쇄망 RAG 시스템을 설계하고, 코딩 에이전트 주도 개발과 자동 검증으로 완성까지 책임지는 개발자</b><br/>
