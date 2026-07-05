@@ -1,4 +1,4 @@
-## 김한성 (Han43seong)
+## 김한성
 
 **폐쇄망 RAG 시스템을 설계하고, 코딩 에이전트 주도 개발과 자동 검증으로 완성까지 책임지는 개발자**
 Closed-network RAG systems — designed by me, built with coding agents, proven by automated verification.
