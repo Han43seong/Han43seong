@@ -18,8 +18,6 @@
   <img src="https://img.shields.io/badge/Claude_Code-D97757?logo=anthropic&logoColor=white" />
 </p>
 
-<!-- TODO: 데모 영상 촬영 후 여기에 삽입 — 비행기 모드 태블릿에서 RAG가 동작하는 90초 영상 GIF/링크 -->
-
 ---
 
 ## 🔒 무엇을 만드나
@@ -28,13 +26,13 @@
 인터넷 없는 현장 태블릿에서 정비교범(S1000D)에 질문하면, 근거 문서와 함께 답이 나오는 시스템을 만듭니다.
 설계와 검증 기준은 직접 잡고, 구현은 코딩 에이전트를 지휘하며, 결과는 자동 QA 루프로 증명합니다.
 
-## 📊 숫자로 보는 작업
+## 📊 검증 범위와 작업 규모
 
 <div align="center">
 
-| **30초+ → 10초대** | **500 / 500** | **완전 오프라인** | **5~10명 팀** |
+| **실기기 핵심 흐름 확인** | **100문항 × 5주기** | **핵심 RAG 흐름 오프라인** | **단독 설계·구축** |
 |:---:|:---:|:---:|:---:|
-| 온디바이스 LLM 응답 단축<br/>(실무, 고객 시연) | 자동 QA→수정→재검증 루프 통과<br/>([검증 리포트](https://github.com/Han43seong/S1000D-RAG/blob/main/docs/rag_quality_evidence_report.md)) | PC 파이프라인부터<br/>Android 앱까지 | 직접 구축한 배포 자동화<br/>현재 운영 중 |
+| Android에서 검색→답변→근거 표시<br/>핵심 흐름 확인 | 총 500회 자동 검사 통과<br/>사람의 답변 품질 평가 아님<br/>([검증 리포트](https://github.com/Han43seong/S1000D-RAG/blob/main/docs/rag_quality_evidence_report.md)) | 로컬 PC 파이프라인과<br/>Android 핵심 RAG 경로 | 개발·배포 자동화 체계<br/>5~10명 개발팀 사용 |
 
 </div>
 
@@ -44,7 +42,7 @@
 flowchart LR
     Q[한국어 질문] --> P[질의 파싱<br/>의도 분류]
     P --> O[온톨로지 해석<br/>RDF/OWL]
-    O --> R[그래프 우선 검색<br/>+ 벡터 검색 + 리랭킹]
+    O --> R[벡터 검색<br/>+ 선택적 그래프·재정렬 경로]
     R --> G{근거 지원 수준<br/>EXACT ~ NONE}
     G -->|충분| A[LLM 답변 합성<br/>+ 근거 문서 표시]
     G -->|부족| B[생성 차단<br/>결정론적 폴백]
@@ -56,8 +54,8 @@ flowchart LR
 
 | 프로젝트 | 무엇 | 증거 |
 |---|---|---|
-| [**S1000D-RAG**](https://github.com/Han43seong/S1000D-RAG) | 폐쇄망 기술문서 질의응답 RAG — 온톨로지가 검색을 통제하고, 근거가 부족하면 LLM 생성을 차단 | [500케이스 검증 리포트](https://github.com/Han43seong/S1000D-RAG/blob/main/docs/rag_quality_evidence_report.md) |
-| [**S1000D-RAG-Android**](https://github.com/Han43seong/S1000D-RAG-Android) | 완전 오프라인 온디바이스 RAG 앱 — ONNX int8 임베딩 + llama.cpp NDK, Galaxy Tab 실기기 동작 | [빌드·배포 가이드](https://github.com/Han43seong/S1000D-RAG-Android) |
+| [**S1000D-RAG**](https://github.com/Han43seong/S1000D-RAG) | S1000D 구조 메타데이터를 보존하는 폐쇄망 RAG 프로토타입 — 근거 부족 시 생성 차단 경로 구성 | [자동 QA·회귀 검증 리포트](https://github.com/Han43seong/S1000D-RAG/blob/main/docs/rag_quality_evidence_report.md) |
+| [**S1000D-RAG-Android**](https://github.com/Han43seong/S1000D-RAG-Android) | ONNX int8 임베딩 + llama.cpp NDK — Android 실기기에서 오프라인 검색→답변→근거 표시 핵심 흐름 확인 | [빌드·배포 가이드](https://github.com/Han43seong/S1000D-RAG-Android/blob/main/BUILD_GUIDE.md) |
 | [**just-chill**](https://github.com/Han43seong/just-chill) | 코딩 에이전트의 "완료" 보고를 근거(변경 내역·테스트 결과)로 검증하는 정책 레이어 | [검증 스크립트 체계](https://github.com/Han43seong/just-chill/tree/main/scripts) |
 
 ## 🔁 일하는 방식
